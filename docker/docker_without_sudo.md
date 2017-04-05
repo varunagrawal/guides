@@ -4,8 +4,12 @@
 
         sudo groupadd docker
 
-- Add the connected user "${USER}" to the docker group. Change the user name to match your preferred user:
-  
+- Add the connected user "$USER" to the docker group::
+
+      	sudo usermod -aG docker $USER
+
+ An alternate command is:
+ 
         sudo gpasswd -a ${USER} docker
 
 - Restart the Docker daemon:
