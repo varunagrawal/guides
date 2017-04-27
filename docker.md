@@ -2,25 +2,31 @@
 
 ## How To Run Docker Without Sudo
 
-- Add the docker group if it doesn't already exist:
+1. Add the docker group if it doesn't already exist:
 
         sudo groupadd docker
 
-- Add the connected user "$USER" to the docker group::
+2. Add the connected user "$USER" to the docker group:
 
-      	sudo usermod -aG docker $USER
+        sudo usermod -aG docker $USER
 
- An alternate command is:
+3. If the above doesn't work, an alternate command is:
  
         sudo gpasswd -a ${USER} docker
 
-- Restart the Docker daemon:
+4. Restart the Docker daemon:
 
         sudo service docker restart
 
-**Note: this command will stop any Docker containers currently running with this service**
+**Note: the above command will stop any Docker containers currently running with this service**
 
-- Either do a newgrp docker or log out/in to activate the changes to groups.
+
+5. Log out and log in again to activate the changes to groups.
+
+6. You should be be able to access `docker` without `sudo`.
+
+        docker system info
+
 
 ## Docker Full Restart
 
