@@ -1,5 +1,19 @@
 # Docker
 
+## Deleting Images and Containers
+
+### All Untagged Images
+
+```shell
+docker rmi -f $(docker images -a | grep "^<none>" | awk '{print $3}')
+```
+
+### All Stopped Containers
+
+```shell
+docker rm $(docker ps -a -q)
+```
+
 ## How To Run Docker Without Sudo
 
 1. Add the docker group if it doesn't already exist:
