@@ -21,7 +21,7 @@ I use `~/.emacs_saves`:
 
 ## MELPA Packages
 
-MELPA is a very cool package manager for emacs. Highly recommended.
+[MELPA](https://melpa.org/#/) is a very cool package manager for emacs. Highly recommended.
 
 To install, open your init file and enter:
 
