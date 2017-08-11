@@ -51,3 +51,10 @@ sudo ifconfig docker0 down
 sudo brctl delbr docker0
 sudo service docker restart
 ```
+
+## Uninstall Docker
+
+```
+apt-get purge nvidia-docker
+rm -rf /var/lib/nvidia-docker
+```
