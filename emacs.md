@@ -36,11 +36,11 @@ To install, open your init file and enter:
 
 ## Emacs Theme
 
-The theme I prefer is `ample-zen`.
+The theme I prefer is `dakrone`.
 
 To install, simply run
 
 ```
-M-x package-install RET ample-zen-theme
-M-x customize-themes -> Select ample-zen with RET and type 'y' for both questions
+M-x package-install RET dakrone-theme
+M-x customize-themes -> Select dakrone with RET and type 'y' for both questions
 ```
