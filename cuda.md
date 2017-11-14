@@ -58,3 +58,8 @@ Now follow the below instructions:
         $ sudo chmod a+r /usr/lib/x86_64-linux-gnu/libcudnn*
 
 You should now be able to run `make` or `cmake` and see the cuDNN installation being picked up.
+
+
+## Hacks
+
+- To get a history of processes on the GPU, run `sudo fuser -v /dev/nvidia*`. Useful for finding processes that aren't listed in `nvidia-smi` but are still occupying the GPU.
