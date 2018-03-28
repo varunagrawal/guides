@@ -26,6 +26,25 @@
 
 - If the TTY1 does not show on hitting `ctrl+alt+f1` or if it shows a black screen, then simply set this `GRUB_CMDLINE_LINUX_DEFAULT="quiet splash usbcore.autosuspend=-1 nomodeset"` in the `/etc/default/grub` file. Make sure to run `sudo update-grub`.
 
+- An issue that is being since since January 2018 on Ubuntu systems is that if you update your system to have the latest linux kernel headers (e.g. `4.4.0-116-generic`), then your Nvidia driver stops working, causing your system to either go into low graphics mode with reduced functionality, or not show the desktop at all.
+The fix for this is to download version `390.42` of the Nvidia driver and install that. Note that on Nvidia's drivers website, you'll need to set your OS to Linux 64-bit (instead of Linux 64-bit Ubuntu 16.04 which is broken at the time of this writing) to get the link to the driver. 
+To install, the process is:
+    
+    - Hit `Ctrl+Alt+F1`.
+    - Stop the GUI daemon with `sudo service lightdm stop`.
+    - Begin the driver installation `sudo sh NVIDIA-Linux-x86_64-390.42.run`.
+    - Say yes to overwriting the previous driver.
+    - If the installer complains about a GCC compiler mismatch (4.9 vs 5.x), run:
+        ```
+        sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.9 50
+        sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 100
+        ```
+        This will set the compiler version to the latest 5.x series of GCC. In case the installer complains about another GCC version, you should be able to figure this out, else get someone else to help you.
+    - When you get to the DKMS support screen, you should select `No`. Even though DKMS is desirable, for some unknown reason enabling DKMS support breaks the installation. Hopefully this is fixed in a future version.
+    - The driver should be installed at this point. Run `nvidia-smi` to confirm and `sudo service lightdm start` to get back to your desktop.
+    - You may need to reboot with `sudo reboot` but this is unlikely.
+
+
 - Login loop: If you get an issue after the CUDA driver installation where you get kicked out each time you login, this is due to having installed the CUDA OpenGL libraries when installing the CUDA drivers. This is a known bug and you may need to google to see its current status.
 
 - Sometimes disabling nouveau can help if your installation fails. To do so, 
