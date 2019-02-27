@@ -59,11 +59,13 @@ To install, the process is:
     4. Regenerate the kernel initramfs:
         `$ sudo update-initramfs -u`
 
+- If you have traditionally installed the Nvidia driver and CUDA from a PPA on Ubuntu, then it is recommended you continue to install from there since the PPA install sets some configurations which makes the Nvidia X server freak out when another Nvidia driver is installed via the runfile.
+
 
 
 ## Install cuDNN
 
-To install cuDNN, go to the [Nvidia CuDNN page](https://developer.nvidia.com/cudnn), register yourself and download the linux library (e.g. cuDNN v5.1 Library for Linux) for the appropriate CUDA version.
+To install cuDNN, go to the [Nvidia CuDNN page](https://developer.nvidia.com/cudnn), register yourself and download the linux library (e.g. cuDNN v7.1 Library for Linux) for the appropriate CUDA version. You can use `nvcc -V` to find the CUDA version you have installed.
 
 Now follow the below instructions:
 
