@@ -74,9 +74,9 @@ Now follow the below instructions:
 3. `cd` into the extracted folder.
 4. Run the following commands:
 
-        $ sudo cp -P include/cudnn.h /usr/local/cuda-8.0/include  # assuming you got /usr/local/cuda-8.0 from step 1
-        $ sudo cp -P lib64/libcudnn* /usr/lib/x86_64-linux-gnu/
-        $ sudo chmod a+r /usr/lib/x86_64-linux-gnu/libcudnn*
+        $ sudo cp -P include/cudnn.h /usr/local/cuda/include  # the second path should be the standard cuda path
+        $ sudo cp -P lib64/libcudnn* /usr/local/cuda/lib64
+        $ sudo chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn*
 
 You should now be able to run `make` or `cmake` and see the cuDNN installation being picked up.
 
