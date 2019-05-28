@@ -46,18 +46,21 @@ if ! [ python.configured ]
 Update the line inside the parenthesis to
 
 ```
-using python : 3.7 : <location of anaconda dir> ;
+using python : 3.7 : <location of anaconda dir e.g. /home/varun/anaconda3> ;
 ```
 
 And finally, make sure to link the Boost.Python .so file correctly so programs like CMake can find it correctly. Be sure to replace the correct `libboost_python*.so` file in the command below.
 
 ```sh
 # .so files
-sudo ln -s /use/local/lib/libboost_python37.so.1.67.0 /use/local/lib/libboost_python.so 
-sudo ln -s /use/local/lib/libboost_python37.so.1.67.0 /use/local/lib/libboost_python-py3.so
+sudo ln -s /usr/local/lib/libboost_python37.so.1.67.0 /usr/local/lib/libboost_python.so
+sudo ln -s /usr/local/lib/libboost_python37.so.1.67.0 /usr/local/lib/libboost_python-py3.so
 
 # header
-sudo ln -s /usr/local/include/boost/python.hpp /usr/local/include/boost/python-py3.hpp 
+sudo ln -s /usr/local/include/boost/python.hpp /usr/local/include/boost/python-py3.hpp
+# Sometimes you would need to use a more specific version of python for the header. 
+# This is more common in CMake issues.
+sudo ln -s /usr/local/include/boost/python.hpp /usr/local/include/boost/python-py37.hpp
 ```
 
 **NOTE** If you get a conflict when creating the above symlinks (due to pre-existing python2 files), simply rename the python2 files by appending a `-py2` before the file extension and try again.
