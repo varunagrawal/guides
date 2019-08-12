@@ -81,6 +81,17 @@ Now follow the below instructions:
 You should now be able to run `make` or `cmake` and see the cuDNN installation being picked up.
 
 
+## Saving Nvidia Settings
+
+One problem that is commonly encountered is that custom X server settings (such as for multiple monitors) are lost when the machine is rebooted. To fix this, open `/etc/X11/xorg.conf` (the configuration file for X11) and look for `Section "Devices"`. In that section, add the following line:
+
+```
+Option "RegistryDwords" "PowerMizerEnable=0x1; PerfLevelSrc=0x3322; PowerMizerDefault=0x2; PowerMizerDefaultAC=0x2"
+```
+
+Reboot and your settings should be saved. [Source](https://askubuntu.com/questions/379483/nvidia-x-server-settings-lost-on-every-reboot)
+
+
 ## Hacks
 
 - To get a history of processes on the GPU, run `sudo fuser -v /dev/nvidia*`. Useful for finding processes that aren't listed in `nvidia-smi` but are still occupying the GPU.
