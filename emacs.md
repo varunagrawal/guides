@@ -44,3 +44,12 @@ To install, simply run
 M-x package-install RET dakrone-theme
 M-x customize-themes -> Select dakrone with RET and type 'y' for both questions
 ```
+
+You may have to set
+
+```
+; Load theme
+(load-theme 'dakrone t)
+```
+
+in the `~/.emacs` file to load the theme.

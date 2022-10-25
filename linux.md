@@ -1,5 +1,9 @@
 # Linux Stuff
 
+### New Ubuntu System
+
+- Run `sudo apt install build-essential cmake cmake-curses-gui git gcc g++` to install build tools.
+
 ### Image Modification
 
 #### Compress
@@ -17,7 +21,6 @@ convert image.jpg -resize 600x400 image.jpg
 ```sh
 convert -resize 50% myfigure.png myfigure.jpg
 ```
-
 
 ### Guide to Tmux
 
