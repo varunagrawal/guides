@@ -11,6 +11,7 @@ Run `sudo apt install build-essential cmake cmake-curses-gui git gcc g++` to ins
 **NOTE** Install `homebrew` after installing pyenv since for Ubuntu 20.04 and before, there is a `glibc` version mismatch.
 
 - Install `pyenv` using the [installer](https://github.com/pyenv/pyenv-installer).
+- Install prerequisite libraries `sudo apt install libffi-dev liblzma-dev libbz2-dev libreadline-dev libsqlite3-dev libncurses-dev libssl-dev`
 - Install Python and set the global version: `pyenv install 3.9.11 && pyenv global 3.9.11`
 - Finally install useful packages:
 
